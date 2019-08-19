@@ -13,9 +13,8 @@ after_success:
   - docker build -t yaqoobch/docker-project-nginx ./nginx
   - docker build -t yaqoobch/docker-project-server ./server
   - docker build -t yaqoobch/docker-project-worker ./worker
-  - echo "$Doc_Pass" | docker login -u "$Doc_ID" --password-stdin
+  - echo "$DOC_PASS" | docker login -u "$DOC_ID" --password-stdin
   - docker push yaqoobch/docker-project-client
   - docker push yaqoobch/docker-project-nginx
   - docker push yaqoobch/docker-project-server
   - docker push yaqoobch/docker-project-worker
-  
