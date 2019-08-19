@@ -3,7 +3,7 @@ service:
   postgres:
     image: 'postgres:latest'
   redis:
-    image: 'redis:lastest'
+    image: 'redis:latest'
   nginx:
     restart: always
     build:
@@ -16,8 +16,8 @@ service:
       dockerfile: Dockerfile.dev
       context: ./server
     volumes:
-        - /app/node_modules
-        - ./server:/app
+      - /app/node_modules
+      - ./server:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -30,13 +30,13 @@ service:
     build:
       dockerfile: Dokcerfile.dev
       context: ./client
-      volumes:
-        - /app/node_modules
-        - ./client:/app
+    volumes:
+      - /app/node_modules
+      - ./client:/app
   worker:
     build:
       dockerfile: Dokcerfile.dev
       context: ./worker
-      volumes:
-        - /app/node_modules
-        - ./worker:/app
+    volumes:
+      - /app/node_modules
+      - ./worker:/app
